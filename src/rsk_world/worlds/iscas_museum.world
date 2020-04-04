@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.4">
+  <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
+
+  <world name="default">
+  
+    <!-- Global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+	
+    <!-- ISCAS museum mode -->
+    <include>
+      <uri>model://iscas_museum</uri>
+    </include>
+
+    <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-28.2455 19.9291 15.3924 0 0.433797 -0.787803</pose>
+        <view_controller>ortho</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+  </world>
+</sdf>

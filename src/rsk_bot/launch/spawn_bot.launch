@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="bot_name" default="stereo_bot"/> 
+
+  <!-- Loads the bot model into the parameter server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find rsk_bot)/urdf/$(arg bot_name)/main.xacro'"/>
+
+  <!-- Spawn the bot model into the gazebo environment -->
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model $(arg bot_name)" />
+
+  <!-- send fake joint values -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>
+
+  <!-- Combine joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+</launch>
