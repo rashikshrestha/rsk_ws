@@ -10,16 +10,15 @@ git clone https://github.com/rashikshrestha/rsk_ws
 ```
 
 #### Step 2:
-Go to rsk_ws folder
-
-
-#### Step 3:
+In Terminal inside 'rsk_ws' folder:
 ```
-sudo ./initialize_rsk_ws.sh
+catkin_make
+sudo ./init_rsk_ws.sh
+
 ```
 
 #### Step 4:
-Try (from any where in Terminal):
+In Terminal at any directory:
 ```
 gimme_a_world iscas_museum
 ```
