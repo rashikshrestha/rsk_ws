@@ -2,10 +2,10 @@
 
 <launch>
 
-  <arg name="bot_name" default="stereo_bot"/> 
+  <arg name="bot_name" default="turtle_bot"/> 
 
   <!-- Loads the bot model into the parameter server -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find rsk_bot)/urdf/$(arg bot_name)/main.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find rsk_bot)/urdf/$(arg bot_name)/$(arg bot_name).urdf.xacro'"/>
 
   <!-- Spawn the bot model into the gazebo environment -->
   <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model $(arg bot_name)" />

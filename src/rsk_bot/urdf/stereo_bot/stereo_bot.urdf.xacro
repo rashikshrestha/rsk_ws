@@ -6,7 +6,7 @@
   <xacro:property name="chassis_x" value="0.4"/>
   <xacro:property name="chassis_y" value="0.2"/>
   <xacro:property name="chassis_z" value="0.1"/>
-  <xacro:property name="chassis_mass" value="10"/>
+  <xacro:property name="chassis_mass" value="50"/>
 
   <xacro:property name="wheel_length" value="0.05"/>
   <xacro:property name="wheel_radius" value="0.1"/>
@@ -17,10 +17,10 @@
   <xacro:property name="cameraMass" value="0.1"/>
 
   <!-- Including File containing differential drive gazebo plugin -->
-  <xacro:include filename="$(find rsk_bot)/urdf/stereo_bot/plugin.gazebo" />
+  <xacro:include filename="$(find rsk_bot)/urdf/stereo_bot/stereo_bot.gazebo.xacro" />
 
   <!-- Including file containing materials information (colour) -->
-  <xacro:include filename="$(find rsk_bot)/urdf/stereo_bot/materials.xacro" />
+  <xacro:include filename="$(find rsk_bot)/urdf/common_properties.xacro" />
 
   
   <link name="dummy"> </link>
