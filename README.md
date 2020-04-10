@@ -16,7 +16,7 @@ catkin_make
 sudo ./init_rsk_ws.sh
 ```
 
-#### Step 4:
+#### Step 3:
 In Terminal at any directory:
 ```
 gimme_a_world iscas_museum
