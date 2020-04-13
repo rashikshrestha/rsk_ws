@@ -7,44 +7,35 @@
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 
-    <!-- Here we need to provide different parameters of a differential drive Robot
-         that we made earlier -->
 
-      <legacyMode>          false                   </legacyMode>
-      <alwaysOn>            true                    </alwaysOn>
-      <updateRate>          20                      </updateRate>
-
-      <leftJoint>           left_wheel_hinge        </leftJoint>
-      <rightJoint>          right_wheel_hinge       </rightJoint>
-
-      <wheelSeparation>     0.4                     </wheelSeparation>
-      <wheelDiameter>       0.1                     </wheelDiameter>
-
-      <torque>              20                      </torque>
-
-      <commandTopic>        cmd_vel                 </commandTopic>
-
-      <odometryTopic>       odom                    </odometryTopic>
-      <odometryFrame>       odom                    </odometryFrame>
-
-      <robotBaseFrame>      base_link                 </robotBaseFrame>
-
-      <!-- I have used these to avoid warnings -->
-      <rosDebugLevel>na</rosDebugLevel>
-      <publishWheelTF> false </publishWheelTF>
-      <publishOdomTF> true </publishOdomTF>
-      <publishWheelJointState> false </publishWheelJointState>
-      <wheelAcceleration> 0 </wheelAcceleration>
-      <wheelTorque> 5 </wheelTorque>
-      <!-- <odometrySource> 1 </odometrySource> -->
-      <publishTf>1</publishTf>
+      <commandTopic>               cmd_vel              </commandTopic>
+      <odometryTopic>              odom                 </odometryTopic>
+      <odometryFrame>              odom                 </odometryFrame>
+      <odometrySource>             world                </odometrySource>
+      <publishOdomTF>              true                 </publishOdomTF>
+      <robotBaseFrame>             base_footprint       </robotBaseFrame>
+      <publishWheelTF>             false                </publishWheelTF>
+      <publishTf>                  true                 </publishTf>
+      <publishWheelJointState>     true                 </publishWheelJointState>
+      <legacyMode>                 false                </legacyMode>
+      <updateRate>                 30                   </updateRate>
+      <leftJoint>                  wheel_left_joint     </leftJoint>
+      <rightJoint>                 wheel_right_joint    </rightJoint>
+      <wheelSeparation>            0.4                  </wheelSeparation>
+      <wheelDiameter>              0.1                  </wheelDiameter>
+      <wheelAcceleration>          1                    </wheelAcceleration>
+      <wheelTorque>                20                   </wheelTorque>
+      <rosDebugLevel>              na                   </rosDebugLevel>
 
     </plugin>
   </gazebo>
 
-
-  <gazebo reference="chassis">
+  <gazebo reference="base_link">
       <material>Gazebo/WoodFloor</material>
+  </gazebo>
+
+  <gazebo reference="caster_link">
+      <material>Gazebo/Yellow</material>
   </gazebo>
 
   <gazebo reference="left_wheel">
@@ -79,10 +70,10 @@
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>              true                    </alwaysOn>
         <updateRate>            10.0                    </updateRate>
-        <cameraName>            stereo_bot/left             </cameraName>
+        <cameraName>            sereo_bot/left             </cameraName>
         <imageTopicName>        image_raw               </imageTopicName>
         <cameraInfoTopicName>   camera_info             </cameraInfoTopicName>
-        <frameName>             point_cloud                  </frameName>
+        <frameName>             point_cloud             </frameName>
         <hackBaseline>          0.07                    </hackBaseline>
         <distortionK1>          0.0                     </distortionK1>
         <distortionK2>          0.0                     </distortionK2>
@@ -118,11 +109,11 @@
 
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>              true                    </alwaysOn>
-        <updateRate>            10.0                     </updateRate>
+        <updateRate>            10.0                    </updateRate>
         <cameraName>            stereo_bot/right            </cameraName>
         <imageTopicName>        image_raw               </imageTopicName>
         <cameraInfoTopicName>   camera_info             </cameraInfoTopicName>
-        <frameName>             point_cloud                  </frameName>
+        <frameName>             point_cloud             </frameName>
         <hackBaseline>          0.07                    </hackBaseline>
         <distortionK1>          0.0                     </distortionK1>
         <distortionK2>          0.0                     </distortionK2>

@@ -16,11 +16,12 @@ source ~/.bashrc
 ## Tutorial
 Following commands can be accessed form any directory:
 
-| 			Command  				| 				Description				 |
-| --------------------------------  | -------------------------------------- |
-| gimme_a_world <world_name>  		| Loads the world in Gazebo 			 |
-| gimme_a_bot <bot_name>  			| Spawns the bot in Gazebo			 	 |
-| rp <keyword>  					| rospack list &#124; grep <keyword>	 |
-| rn <keyword>  					| rosnode list &#124; grep <keyword>	 |
-| rt <keyword>  					| rostopic list &#124; grep <keyword>	 |
-| brc  								| sudo gedit ~/.bashrc					 |
+| 			Command  				| 				Description				 					|
+| --------------------------------- | --------------------------------------------------------- |
+| gimme_a_world <world_name>  		| Loads the world in Gazebo 			 					|
+| gimme_a_bot <bot_name>  			| Spawns the bot in Gazebo			 	 					|
+| rp <keyword>  					| rospack list &#124; grep <keyword>	 					|
+| rn <keyword>  					| rosnode list &#124; grep <keyword>					    |
+| rt <keyword>  					| rostopic list &#124; grep <keyword>	 					|
+| brc  								| sudo gedit ~/.bashrc					 					|
+| kb								| rosrun teleop_twist_keyboard teleop_twist_keyboard.py 	|
