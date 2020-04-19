@@ -2,7 +2,7 @@
 
 <robot name="myrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find rsk_bot)/urdf/stereo_bot/stereo_bot.gazebo.xacro" />
+  <xacro:include filename="$(find rsk_bot)/urdf/mono_bot/mono_bot.gazebo.xacro" />
   <xacro:include filename="$(find rsk_bot)/urdf/common_properties.xacro" />
 
   <xacro:property name="chassis_x" value="0.4"/>
@@ -167,13 +167,13 @@
 
   <!-- ######################################################################################################################## -->
 
-  <joint name="stereo_camera_joint" type="fixed">
-    <origin xyz="0.15 0.055 0.15" rpy="0 0 0"/>
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.15 0 0.15" rpy="0 0 0"/>
     <parent link="base_link"/>
-    <child link="stereo_camera_link"/>
+    <child link="camera_link"/>
   </joint>
 
-  <link name="stereo_camera_link">
+  <link name="camera_link">
 
     <visual>
       <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
@@ -201,14 +201,15 @@
 	
   <!-- ######################################################################################################################## -->
 
-   <joint name="stereo_camera_optical_joint" type="fixed">
+   <joint name="camera_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
-    <parent link="stereo_camera_link"/>
-    <child link="stereo_camera_optical_link"/>
+    <parent link="camera_link"/>
+    <child link="camera_optical_link"/>
   </joint>
 
-  <link name="stereo_camera_optical_link"/>
+  <link name="camera_optical_link"/>
 
   <!-- ######################################################################################################################## -->
+
 
 </robot>

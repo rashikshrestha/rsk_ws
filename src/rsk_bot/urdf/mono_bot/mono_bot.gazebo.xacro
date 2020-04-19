@@ -46,68 +46,45 @@
       <material>Gazebo/Wood</material>
   </gazebo>
 
-  <!-- ################################# Gazebo Plugin for Stereo camera #############################-->
+  <!-- ################################### Gazebo Plugin for Camera ###############################-->
 
-   <gazebo reference="stereo_camera_link">
+  <gazebo reference="camera_link">
+    <material>Gazebo/Green</material>
 
-    <sensor type="multicamera" name="stereo_camera">
+    <sensor type="camera" name="camera">
       <update_rate>30.0</update_rate>
 
-      <camera name="left">
+      <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>400</width>
+          <height>400</height>
           <format>R8G8B8</format>
         </image>
         <clip>
           <near>0.02</near>
           <far>300</far>
         </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
       </camera>
 
-      <camera name="right">
-        <pose>0 -0.11 0 0 0 0</pose>
-        <horizontal_fov>1.3962634</horizontal_fov>
-        <image>
-          <width>800</width>
-          <height>800</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
-      </camera>
-
-      <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
-        <alwaysOn>              true                          </alwaysOn>
-        <updateRate>            0.0                           </updateRate>
-        <cameraName>            stereo                </cameraName>
-        <imageTopicName>        image_raw                     </imageTopicName>
-        <cameraInfoTopicName>   camera_info                   </cameraInfoTopicName>
-        <frameName>             stereo_camera_optical_link    </frameName>
-        <!--<rightFrameName>right_camera_optical_frame</rightFrameName>-->
-        <hackBaseline>          0.07                          </hackBaseline>
-        <distortionK1>          0.0                           </distortionK1>
-        <distortionK2>          0.0                           </distortionK2>
-        <distortionK3>          0.0                           </distortionK3>
-        <distortionT1>          0.0                           </distortionT1>
-        <distortionT2>          0.0                           </distortionT2>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>              true                    </alwaysOn>
+        <updateRate>            10.0                    </updateRate>
+        <!--cameraName>            stereo_bot/left         </cameraName-->
+        <imageTopicName>        image             </imageTopicName>
+        <cameraInfoTopicName>   camera_info             </cameraInfoTopicName>
+        <frameName>             camera_optical_link             </frameName>
+        <hackBaseline>          0.07                    </hackBaseline>
+        <distortionK1>          0.0                     </distortionK1>
+        <distortionK2>          0.0                     </distortionK2>
+        <distortionK3>          0.0                     </distortionK3>
+        <distortionT1>          0.0                     </distortionT1>
+        <distortionT2>          0.0                     </distortionT2>
       </plugin>
-    </sensor>
-  </gazebo>
 
+    </sensor>
+
+  </gazebo>
 
 
 </robot>
