@@ -35,6 +35,19 @@ kb()
 	rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 }
 
+organize_my_ws()
+{
+	wmctrl -r Gazebo -b remove,maximized_vert,maximized_horz
+	wmctrl -r Gazebo -e 0,0,0,933,1024
+
+        wmctrl -r RViz -b remove,maximized_vert,maximized_horz
+        wmctrl -r RViz -e 0,977,0,933,1024
+
+	wmctrl -r kb -b remove,maximized_vert,maximized_horz
+	wmctrl -r kb -e 0,0,950,500,100
+
+}
+
 
 
 
